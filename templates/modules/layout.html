@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh_CN" th:fragment="html (content)" data-html-hidden th:style="'--primary-color:' + ${theme.config.style.theme_color}">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title th:text="${#strings.defaultString(title, site.title)}"></title>
+  <link rel="stylesheet" th:href="@{/assets/dist/style.css?v={version}(version=${theme.spec.version})}" />
+  <script th:src="@{/assets/dist/main.js?v={version}(version=${theme.spec.version})}"></script>
+</head>
+
+<body>
+  <div id="themeMode" class="light-box"></div>
+  <div class="wrapper">
+    <th:block th:replace="~{modules/header :: header}"></th:block>
+    <th:block th:replace="${content}" />
+  </div>
+</body>
+
+</html>

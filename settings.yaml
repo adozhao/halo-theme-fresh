@@ -1,0 +1,28 @@
+apiVersion: v1alpha1
+kind: Setting
+metadata:
+  name: ado-fresh-setting
+spec:
+  forms:
+    - group: home
+      label: 首页
+      formSchema:
+        - $formkit: text
+          name: title
+          label: 标题
+          help: 默认展示站点标题
+        - $formkit: text
+          name: intro
+          label: 简介
+          help: 默认展示站点副标题
+        - $formkit: text
+          name: sign
+          label: 角标
+          help: 默认展示主题名称
+    - group: style
+      label: 样式
+      formSchema:
+        - $formkit: color
+          name: theme_color
+          label: 设置主题色
+          value: "green"

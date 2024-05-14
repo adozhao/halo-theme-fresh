@@ -1,0 +1,17 @@
+apiVersion: theme.halo.run/v1alpha1
+kind: Theme
+metadata:
+  name: ado-fresh
+spec:
+  displayName: Fresh
+  author:
+    name: ADO
+    website: https://ado.zone
+  description: 一款清新的主题
+  logo: /themes/ado-fresh/assets/logo.png
+  website: https://ado.zone
+  repo: https://github.com/adozhao/halo-theme-fresh.git
+  settingName: "ado-fresh-setting"
+  configMapName: "ado-fresh-configMap"
+  version: 1.0.2
+  require: ">=2.0.0"

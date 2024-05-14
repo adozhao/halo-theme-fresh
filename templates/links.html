@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{modules/layout :: html(title = '友情链接', content = ~{::content})}">
+  <th:block th:fragment="content">
+    <div id="content">
+      <div class="links" th:each="group : ${groups}">
+        <div class="link-title" th:text="${group.spec.displayName}"></div>
+        <div class="link-box">
+          <a class="link-item" th:each="link : ${group.links}" th:href="${link.spec.url}" target="_blank" th:text="${link.spec.displayName}" th:title="${link.spec.description}"></a>
+        </div>
+      </div>
+    </div>
+  </th:block>
+</html>

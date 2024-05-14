@@ -1,0 +1,11 @@
+<header id="header">
+    <nav class="nav-box">
+        <th:block th:each="menuItem, status : ${menuFinder.getPrimary().menuItems}">
+            <a class="nav-link" th:href="@{${menuItem.status?.href}}" th:target="${menuItem.spec.target?.value}"
+                th:aria-label="'Menu named ' + ${menuItem.status?.displayName}"
+                th:text="${menuItem.status?.displayName}">
+            </a>
+        </th:block>
+        <a th:if="${pluginFinder.available('PluginSearchWidget')}" class="nav-link" href="javascript:SearchWidget.open();" aria-label="Search in site">🔍️</a>
+    </nav>
+</header>

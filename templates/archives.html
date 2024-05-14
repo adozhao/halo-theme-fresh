@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{modules/layout :: html(title = '归档', content = ~{::content})}">
+<th:block th:fragment="content">
+  <div id="content">
+    <section class="archives-wrap" th:each="archives, status : ${archives.items}">
+      <th:block th:each="archive : ${archives}">
+        <div class="year" th:text="${archive.year}|"></div>
+        <div class="archives">
+          <th:block th:each="month : ${archive.months}">
+            <article class="archive-article" th:each="post : ${month.posts}">
+              <div class="archive-article-inner">
+                  <time class="time" 
+                  itemprop="datePublished"
+                  th:datetime="${#temporals.format(post.spec.publishTime, 'yyyy-MM-dd')}"
+                  th:text="${#temporals.format(post.spec.publishTime, 'MM-dd')}"
+                  ></time>
+                  <div class="archive-article-title" itemprop="name">
+                    <a th:href="${post.status.permalink}" th:text="${post.spec.title}"></a>
+                  </div>
+              </div>
+            </article>
+          </th:block>
+        </div>
+      </th:block>
+    </section>
+    <nav class="page-nav">
+      <a class="extend prev" th:if="${archives.hasPrevious()}" rel="prev" th:href="@{${archives.prevUrl}}">« Prev</a>
+      <span class="page-number" th:with="totalPage=${archives.totalPages}"
+        th:text="${archives.page} + '  /  ' + ${totalPage}">
+      </span>
+      <a class="extend next" th:if="${archives.hasNext()}" rel="next" th:href="@{${archives.nextUrl}}">Next »</a>
+    </nav>
+  </div>
+</th:block>
+
+</html>

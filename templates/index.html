@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh_CN" th:fragment="html (content)" data-html-hidden th:style="'--primary-color:' + ${theme.config.style.theme_color}">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title th:text="${#strings.defaultString(title, site.title)}"></title>
+  <link rel="stylesheet" th:href="@{/assets/dist/style.css?v={version}(version=${theme.spec.version})}" />
+  <script th:src="@{/assets/dist/main.js?v={version}(version=${theme.spec.version})}"></script>
+</head>
+  <body>
+    <div class="flower">
+      <object data="image/svg+xml" th:data="@{/assets/dist/flower.svg}"></object>
+    </div>
+    <div id="themeMode" class="light-box"></div>
+    <div class="centre-box">
+      <div class="section-title">
+        <p class="name" th:text="${theme.config.home.title?: site.title}"></p>
+        <div class="sign" th:text="${theme.config.home.sign?: theme.spec.displayName}"></div>
+      </div>
+      <p class="intro" th:text="${theme.config.home.intro?: site.subtitle}"></p>
+      <div class="arrow-box">
+        <a href="/archives">→</a>
+      </div>
+    </div>
+  </body>
+</html>
