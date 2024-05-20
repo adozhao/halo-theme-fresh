@@ -114,6 +114,17 @@ body {
   animation: move 0.8s alternate infinite;
 }
 
+.copyright{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: var(--secondary-color);
+}
+.copyright a{
+  color: var(--primary-color);
+}
+
 .flower{
   position: absolute;
   top: 5rem;
