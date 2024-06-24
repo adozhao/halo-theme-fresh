@@ -1,6 +1,6 @@
 {
   "name": "halo-theme-fresh",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "一款清新的主题",
   "scripts": {
     "build": "gulp build"
